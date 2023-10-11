@@ -9,8 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTreeModule} from '@angular/material/tree';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { PortalsComponent } from './pages/portals/portals.component';
 import { StateComponent } from './pages/state/state.component';
 import { AccessGroupsComponent } from './pages/access-groups/access-groups.component';
 import { CanvasComponent } from './components/canvas/canvas.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { CanvasComponent } from './components/canvas/canvas.component';
     PortalsComponent,
     StateComponent,
     AccessGroupsComponent,
-    CanvasComponent
+    CanvasComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -50,12 +53,13 @@ import { CanvasComponent } from './components/canvas/canvas.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    NoopAnimationsModule,
+    BrowserAnimationsModule,
     MatDialogModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTreeModule
+    MatTreeModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

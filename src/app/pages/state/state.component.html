@@ -1,9 +1,24 @@
-<div class="main-content">
-  <div class="header-section">
-    <span class="title-section">State Tables</span>
-    <button mat-raised-button (click)="openDialog('0ms', '0ms')" color="primary">Add</button>
-  </div>
-  <div class="content-section">
-    <app-data-table></app-data-table>
-  </div>
-</div>
+<mat-tab-group animationDuration="1000ms">
+  <mat-tab label="Logical Functions">
+    <div class="main-content">
+      <div class="header-section">
+        <span class="title-section">Logical Functions</span>
+        <button mat-raised-button (click)="openDialog('0ms', '0ms')" color="primary">Add</button>
+      </div>
+      <div class="content-section">
+        <app-data-table></app-data-table>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="State Tables">
+    <div class="main-content">
+      <div class="header-section">
+        <span class="title-section">State Tables</span>
+        <button mat-raised-button (click)="openDialog('0ms', '0ms')" color="primary">Add</button>
+      </div>
+      <div class="content-section">
+        <app-data-table></app-data-table>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

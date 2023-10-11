@@ -6,8 +6,10 @@ import { ConfigComponent } from './pages/general/config.component';
 import { PanelComponent } from './pages/panel/panel.component';
 import { PortalsComponent } from './pages/portals/portals.component';
 import { StateComponent } from './pages/state/state.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
+  {path: '', component: HomeComponent},
   {path: 'alarms', component: AlarmsComponent},
   {path: 'cardholders', component: CardholdersComponent},
   {path: 'config', component: ConfigComponent},

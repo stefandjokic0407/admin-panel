@@ -20,3 +20,8 @@
 .menu-item {
   font-size: 14px;
 }
+
+.toolbar-section {
+  background-color: #00527a;
+  color: white;
+}

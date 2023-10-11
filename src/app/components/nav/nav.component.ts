@@ -13,6 +13,10 @@ interface SidebarNode {
 
 const menuItems: SidebarNode[] = [
   {
+    title:"Home",
+    path:"",
+  },
+  {
     title:"Alarms",
     path:"/alarms",
   },
@@ -90,16 +94,17 @@ const menuItems: SidebarNode[] = [
   },
   {
     title:"State Tables",
-    children: [
-      {
-        title: "Logical Functions",
-        path: "/logical-functions"
-      },
-      {
-        title: "State Tables",
-        path: "/state"
-      },
-    ]
+    path: "/state",
+    // children: [
+    //   {
+    //     title: "Logical Functions",
+    //     path: "/logical-functions"
+    //   },
+    //   {
+    //     title: "State Tables",
+    //     path: "/state"
+    //   },
+    // ]
   },
 ];
 
