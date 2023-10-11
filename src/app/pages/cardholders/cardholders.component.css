@@ -1,0 +1,17 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-section {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid grey;
+}
+
+.title-section {
+  font-size: 24px;
+  font-weight: bold;
+}
