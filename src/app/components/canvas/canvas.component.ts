@@ -25,8 +25,15 @@ export class CanvasComponent implements OnInit {
     let context = canvas.getContext('2d');
     if (context) {
       context.beginPath();
+      context.fillStyle = "white";
+      context.font = "40px serif";
+      context.fillText("Panel", 310, 50);
+
+      context.fillStyle = "black";
       context.fillRect(100, 100, 500, 500);
-      context.clearRect(110, 110, 480, 480);
+      context.fillStyle = "#00476d";
+      context.fillRect(110, 110, 480, 480);
+      context.fillStyle = "black";
       context.font = "50px serif";
       context.fillText("Gateway", 250, 370);
     }
@@ -39,8 +46,11 @@ export class CanvasComponent implements OnInit {
       context.beginPath();
 
       for (let i = 0; i < this.circuitCounts; i++) {
+        context.fillStyle = "black";
         context.fillRect(this.EMPosition[i].x, this.EMPosition[i].y, 100, 100);
-        context.clearRect(this.EMPosition[i].x + 5, this.EMPosition[i].y + 5, 90, 90);
+        context.fillStyle = "#372016";
+        context.fillRect(this.EMPosition[i].x + 5, this.EMPosition[i].y + 5, 90, 90);
+        context.fillStyle = "white";
         context.font = "20px serif";
         context.fillText("EM " + (i + 1), this.EMPosition[i].x + 30, this.EMPosition[i].y + 60);
       }
