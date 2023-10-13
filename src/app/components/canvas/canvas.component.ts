@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
 
 @Component({
   selector: 'app-canvas',
@@ -6,8 +6,19 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./canvas.component.css']
 })
 export class CanvasComponent implements OnInit {
-
+  @Input() circuitCounts: number = 0;
   constructor(private stage:ElementRef) { }
+
+  private EMPosition = [
+    { x: 540, y: 200 },
+    { x: 540, y: 400 },
+    { x: 60, y: 400 },
+    { x: 60, y: 200 },
+    { x: 200, y: 60 },
+    { x: 400, y: 60 },
+    { x: 400, y: 540 },
+    { x: 200, y: 540 },
+  ];
 
   drawMainboard() {
     let canvas = <HTMLCanvasElement>this.stage.nativeElement.querySelector('#stage')
@@ -24,22 +35,24 @@ export class CanvasComponent implements OnInit {
   drawChildboard() {
     let canvas = <HTMLCanvasElement>this.stage.nativeElement.querySelector('#stage')
     let context = canvas.getContext('2d');
-    if (context) {
+    if (context && this.circuitCounts && this.circuitCounts > 0 && this.circuitCounts < 9) {
       context.beginPath();
-      context.fillRect(540, 200, 100, 100);
-      context.clearRect(545, 205, 90, 90);
-      context.font = "20px serif";
-      context.fillText("EM 1", 570, 260);
 
-      context.fillRect(540, 400, 100, 100);
-      context.clearRect(545, 405, 90, 90);
-      context.font = "20px serif";
-      context.fillText("EM 2", 570, 460);
+      for (let i = 0; i < this.circuitCounts; i++) {
+        context.fillRect(this.EMPosition[i].x, this.EMPosition[i].y, 100, 100);
+        context.clearRect(this.EMPosition[i].x + 5, this.EMPosition[i].y + 5, 90, 90);
+        context.font = "20px serif";
+        context.fillText("EM " + (i + 1), this.EMPosition[i].x + 30, this.EMPosition[i].y + 60);
+      }
+
     }
   }
 
   ngOnInit() {
     this.drawMainboard();
+  }
+
+  ngOnChanges() {
     this.drawChildboard();
   }
 }

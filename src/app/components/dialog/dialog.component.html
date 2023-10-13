@@ -1,8 +1,16 @@
 <h1 mat-dialog-title>Add information</h1>
 <div mat-dialog-content>
-  Data Forms
+  <p *ngIf="data.path===''">Data Form</p>
+  <mat-form-field *ngIf="data.path==='panel'" >
+    <span>Circuit count</span>
+    <input matInput type="number" [formControl]="panelFormControl" [errorStateMatcher]="matcher" [(ngModel)]="data.counts">
+    <mat-hint>The value must be 1 to 8.</mat-hint>
+    <mat-error *ngIf="panelFormControl.hasError('required')">
+      Circuit Count is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close cdkFocusInitial>Save</button>
-  <button mat-button mat-dialog-close>Cancel</button>
+  <button [mat-dialog-close]="data.counts" mat-button cdkFocusInitial>Save</button>
+  <button mat-button (click)="onCancel()">Cancel</button>
 </div>

@@ -8,13 +8,20 @@ import { DialogComponent } from 'src/app/components/dialog/dialog.component';
   styleUrls: ['./panel.component.css']
 })
 export class PanelComponent {
+  circuitCounts!: number;
+
   constructor(public dialog: MatDialog) {}
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogComponent, {
+    const dialogRef = this.dialog.open(DialogComponent, {
       width: '80%',
+      data: { counts: this.circuitCounts, path: "panel"},
       enterAnimationDuration,
-      exitAnimationDuration,
+      exitAnimationDuration
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) this.circuitCounts = result;
+    })
   }
 }
